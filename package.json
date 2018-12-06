@@ -1,0 +1,36 @@
+{
+  "name": "nestjs-rabbitmq",
+  "version": "1.0.0",
+  "description": "nest rabbitmq module",
+  "main": "index.js",
+  "author": "zzy",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kyknow/nestjs-rabbitmq"
+  },
+  "scripts": {
+    "build": "rm -rf dist && tsc -p tsconfig.json",
+    "precommit": "lint-staged",
+    "prepublish:npm": "yarn run build",
+    "publish:npm": "yarn publish --access public"
+  },
+  "keywords": [
+    "nestjs",
+    "nest",
+    "rabbitmq",
+    "amqp",
+    "amqplib",
+    "nestjs-rabbitmq"
+  ],
+  "dependencies": {
+    "@nestjs/common": "^5.4.1",
+    "amqp-connection-manager": "^2.3.0",
+    "amqplib": "^0.5.3"
+  },
+  "devDependencies": {
+    "@types/amqp-connection-manager": "^2.0.1",
+    "@types/node": "^10.12.12",
+    "typescript": "^3.2.1"
+  }
+}
