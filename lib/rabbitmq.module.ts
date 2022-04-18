@@ -2,20 +2,21 @@ import { Global, Module, DynamicModule } from '@nestjs/common'
 import { RabbitMqModuleOptions, RabbitMqModuleAsyncOptions } from './rabbitmq.interface';
 import { RABBITMQ_MODULE_OPTIONS } from './rabbitmq.constants';
 import { RabbitMqService } from './rabbitmq.service';
-import { createClient,createAsyncClientOptions } from './rabbitmq-client.provider';
+import { createClient, createAsyncClientOptions } from './rabbitmq-client.provider';
 @Global()
 @Module({
-  providers:[RabbitMqService],
+  providers: [RabbitMqService],
   exports: [RabbitMqService]
 })
 export class RabbitMqModule {
-  static forRoot(options:RabbitMqModuleOptions) : DynamicModule {
+  static forRoot(options: RabbitMqModuleOptions): DynamicModule {
     return {
+      global: options?.global ?? true,
       module: RabbitMqModule,
       providers: [
         createClient(),
         {
-          provide: RABBITMQ_MODULE_OPTIONS, 
+          provide: RABBITMQ_MODULE_OPTIONS,
           useValue: options
         }
       ],
@@ -23,8 +24,9 @@ export class RabbitMqModule {
     }
   }
 
-  static forRootSync(options: RabbitMqModuleAsyncOptions) : DynamicModule {
+  static forRootSync(options: RabbitMqModuleAsyncOptions): DynamicModule {
     return {
+      global: options?.global ?? true,
       module: RabbitMqModule,
       providers: [
         createClient(),

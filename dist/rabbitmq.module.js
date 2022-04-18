@@ -5,15 +5,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-Object.defineProperty(exports, "__esModule", { value: true });
 var RabbitMqModule_1;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.RabbitMqModule = void 0;
 const common_1 = require("@nestjs/common");
 const rabbitmq_constants_1 = require("./rabbitmq.constants");
 const rabbitmq_service_1 = require("./rabbitmq.service");
 const rabbitmq_client_provider_1 = require("./rabbitmq-client.provider");
 let RabbitMqModule = RabbitMqModule_1 = class RabbitMqModule {
     static forRoot(options) {
+        var _a;
         return {
+            global: (_a = options === null || options === void 0 ? void 0 : options.global) !== null && _a !== void 0 ? _a : true,
             module: RabbitMqModule_1,
             providers: [
                 rabbitmq_client_provider_1.createClient(),
@@ -26,7 +29,9 @@ let RabbitMqModule = RabbitMqModule_1 = class RabbitMqModule {
         };
     }
     static forRootSync(options) {
+        var _a;
         return {
+            global: (_a = options === null || options === void 0 ? void 0 : options.global) !== null && _a !== void 0 ? _a : true,
             module: RabbitMqModule_1,
             providers: [
                 rabbitmq_client_provider_1.createClient(),

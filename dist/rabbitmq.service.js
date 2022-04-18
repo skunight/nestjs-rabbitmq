@@ -12,6 +12,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.RabbitMqService = void 0;
 const common_1 = require("@nestjs/common");
 const rabbitmq_constants_1 = require("./rabbitmq.constants");
 const amqp = require("amqp-connection-manager");

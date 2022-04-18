@@ -1,4 +1,4 @@
-import { Injectable, Inject } from "@nestjs/common";
+import { Inject, Injectable } from '@nestjs/common'
 import { RABBITMQ_CLIENT } from './rabbitmq.constants';
 import * as amqp from 'amqp-connection-manager'
 @Injectable()

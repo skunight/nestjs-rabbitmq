@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.createAsyncClientOptions = exports.createClient = void 0;
 const rabbitmq_constants_1 = require("./rabbitmq.constants");
 const amqp = require("amqp-connection-manager");
 exports.createClient = () => ({

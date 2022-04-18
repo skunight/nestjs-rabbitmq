@@ -10,7 +10,7 @@
     "url": "https://github.com/kyknow/nestjs-rabbitmq"
   },
   "scripts": {
-    "build": "rm -rf dist && tsc -p tsconfig.json",
+    "build": "nest build",
     "precommit": "lint-staged",
     "prepublish:npm": "yarn run build",
     "publish:npm": "yarn publish --access public"
@@ -24,9 +24,11 @@
     "nestjs-rabbitmq"
   ],
   "dependencies": {
-    "@nestjs/common": "^5.4.1",
-    "amqp-connection-manager": "^2.3.0",
-    "amqplib": "^0.5.3"
+    "@nestjs/common": "^8.0.0",
+    "amqp-connection-manager": "^4.1.2",
+    "amqplib": "^0.8.0",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^7.5.5"
   },
   "devDependencies": {
     "@types/amqp-connection-manager": "^2.0.1",

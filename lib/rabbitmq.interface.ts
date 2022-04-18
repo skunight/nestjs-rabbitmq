@@ -4,10 +4,12 @@ export interface RabbitMqModuleOptions {
   user?: string,
   passwd?: string,
   host?: string,
-  port?: number
+  port?: number,
+  global?: boolean,
 }
 
 export interface RabbitMqModuleAsyncOptions extends Pick<ModuleMetadata, 'imports'> {
   useFactory?: (...args: any[]) => RabbitMqModuleOptions | Promise<RabbitMqModuleOptions>,
   inject?: any[];
+  global?: boolean,
 }
